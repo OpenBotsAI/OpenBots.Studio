@@ -104,6 +104,9 @@
     <Reference Include="Common.Logging.Core, Version=3.4.1.0, Culture=neutral, PublicKeyToken=af08829b84f0328e, processorArchitecture=MSIL">
       <HintPath>..\packages\Common.Logging.Core.3.4.1\lib\net40\Common.Logging.Core.dll</HintPath>
     </Reference>
+    <Reference Include="CSScriptLibrary, Version=3.30.5.1, Culture=neutral, PublicKeyToken=70fcc3d18c749033, processorArchitecture=MSIL">
+      <HintPath>..\packages\CS-Script.bin.3.30.5.1\lib\net45\CSScriptLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="Geckofx-Core, Version=45.0.34.0, Culture=neutral, PublicKeyToken=3209ac31600d1857, processorArchitecture=x86">
       <HintPath>..\packages\Geckofx45.45.0.34\lib\net45\Geckofx-Core.dll</HintPath>
     </Reference>
@@ -194,6 +197,9 @@
     </Reference>
     <Reference Include="MimeKit, Version=2.10.0.0, Culture=neutral, PublicKeyToken=bede1c8a46c66814, processorArchitecture=MSIL">
       <HintPath>..\packages\MimeKit.2.10.1\lib\net48\MimeKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CSharp, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
+      <HintPath>..\packages\CS-Script.bin.3.30.5.1\lib\net45\Mono.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
