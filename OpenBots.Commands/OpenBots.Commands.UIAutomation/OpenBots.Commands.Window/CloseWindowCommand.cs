@@ -59,6 +59,8 @@ namespace OpenBots.Commands.Window
 			{
 				try 
 				{
+					if (engine.IsCancellationPending)
+						break;
 					targetWindows = User32Functions.FindTargetWindows(windowName);
 					if (targetWindows.Count == 0)
                     {

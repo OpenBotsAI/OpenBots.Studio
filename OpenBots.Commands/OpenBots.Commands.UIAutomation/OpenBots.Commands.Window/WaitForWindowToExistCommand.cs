@@ -60,6 +60,8 @@ namespace OpenBots.Commands.Window
 
 			while (DateTime.Now < endDateTime)
 			{
+				if (engine.IsCancellationPending)
+					break;
 				hWnd = User32Functions.FindWindow(windowName);
 
 				if (hWnd != IntPtr.Zero) //If found

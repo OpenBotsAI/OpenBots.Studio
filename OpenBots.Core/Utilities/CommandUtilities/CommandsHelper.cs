@@ -249,6 +249,8 @@ namespace OpenBots.Core.Utilities.CommandUtilities
                     {
                         try
                         {
+							if (engine.IsCancellationPending)
+								throw new Exception("Element search cancelled");
                             var elementToBeDisplayed = seleniumInstance.FindElement(byall);
                             return elementToBeDisplayed.Displayed;
                         }

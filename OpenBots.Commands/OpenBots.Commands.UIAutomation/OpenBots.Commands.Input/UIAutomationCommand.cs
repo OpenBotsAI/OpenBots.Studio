@@ -132,6 +132,9 @@ namespace OpenBots.Commands.Input
 			{
 				try
 				{
+					if (engine.IsCancellationPending)
+						break;
+
 					requiredHandle = CommandsHelper.SearchForGUIElement(engine, v_UIASearchParameters, variableWindowName);
 
 					if (requiredHandle == null)

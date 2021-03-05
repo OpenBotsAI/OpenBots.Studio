@@ -227,6 +227,8 @@ namespace OpenBots.UI.Forms
                 try
                 {
                     PropertyInfo propFrom = fromObject.GetType().GetProperty(propTo.Name);
+                    if (propTo.Name == "SelectionName")
+                        continue;
                     if (propFrom != null && propFrom.CanWrite)
                         propTo.SetValue(toObject, propFrom.GetValue(fromObject, null), null);
                 }

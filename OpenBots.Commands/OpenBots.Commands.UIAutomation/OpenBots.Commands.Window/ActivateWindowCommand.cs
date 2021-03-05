@@ -56,6 +56,8 @@ namespace OpenBots.Commands.Window
             {
                 try
                 {
+					if (engine.IsCancellationPending)
+						break;
 					User32Functions.ActivateWindow(windowName);
 					if (!User32Functions.GetActiveWindowTitle().Equals(windowName))
 					{
