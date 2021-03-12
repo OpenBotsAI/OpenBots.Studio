@@ -46,7 +46,7 @@ namespace OpenBots.Commands.Dictionary
 		[SampleUsage("Hello || {vValue}")]
 		[Remarks("Value can only be a String, DataTable, MailItem or IWebElement.")]
 		[Editor("ShowVariableHelper", typeof(UIAdditionalHelperType))]
-		[CompatibleTypes(new Type[] { typeof(string), typeof(OBDataTable), typeof(MailItem), typeof(MimeMessage), typeof(IWebElement), typeof(object) })]
+		[CompatibleTypes(new Type[] { typeof(string), typeof(OBDataTable), typeof(MailItem), typeof(MimeMessage), typeof(IWebElement), typeof(object) }, true)]
 		public string v_Value { get; set; }
 
 		public UpdateDictionaryValueCommand()
