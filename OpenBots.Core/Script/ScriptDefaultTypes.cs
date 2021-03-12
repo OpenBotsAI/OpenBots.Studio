@@ -3,6 +3,7 @@ using SHDocVw;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Data.OleDb;
 using System.Diagnostics;
 using ExcelApplication = Microsoft.Office.Interop.Excel.Application;
@@ -21,7 +22,8 @@ namespace OpenBots.Core.Script
             { typeof(List<>).ToString(), typeof(List<>) },
             { typeof(Dictionary<,>).ToString(), typeof(Dictionary<,>) },
             { typeof(DataTable).ToString(), typeof(DataTable) },
-            { typeof(DataRow).ToString(), typeof(DataRow) }         
+            { typeof(DataRow).ToString(), typeof(DataRow) },
+            { typeof(Bitmap).ToString(), typeof(Bitmap) }
         };
 
         public static Dictionary<string, Type> DefaultInstanceTypes = new Dictionary<string, Type>()
