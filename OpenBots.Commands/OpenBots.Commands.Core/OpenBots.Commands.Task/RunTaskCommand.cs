@@ -287,6 +287,7 @@ namespace OpenBots.Commands.Task
 					DataGridViewComboBoxCell returnComboBox = new DataGridViewComboBoxCell();
 					returnComboBox.Items.Add("In");
 					returnComboBox.Items.Add("Out");
+					returnComboBox.Items.Add("InOut");
 					_assignmentsGridViewHelper.Rows[i].Cells[3] = returnComboBox;
 					//make read only until theres a way to cleanly synchronize changes made 
 					_assignmentsGridViewHelper.Rows[i].Cells[3].ReadOnly = true;					
@@ -348,7 +349,7 @@ namespace OpenBots.Commands.Task
 				object argumentValue = null;
 				var argumentDirection = (string)rw.ItemArray[3];
 
-				if (argumentDirection == "In")
+				if (argumentDirection == "In" || argumentDirection == "InOut")
                 {
 					if (((string)rw.ItemArray[2]).StartsWith("{") && ((string)rw.ItemArray[2]).EndsWith("}"))
 						argumentValue = ((string)rw.ItemArray[2]).ConvertUserVariableToObject(parentAutomationEngineInstance, typeof(object));
@@ -364,17 +365,25 @@ namespace OpenBots.Commands.Task
 						ArgumentType = argumentType
 					});
 				}
-
 					
-                else if (argumentDirection == "Out")
+                if (argumentDirection == "Out" || argumentDirection == "InOut")
                 {
-					_argumentList.Add(new ScriptArgument
-					{
-						ArgumentName = argumentName.Replace("{", "").Replace("}", ""),
-						Direction = (ScriptArgumentDirection)Enum.Parse(typeof(ScriptArgumentDirection), argumentDirection),
-						AssignedVariable = ((string)rw.ItemArray[2]).Replace("{", "").Replace("}", ""),
-						ArgumentType = argumentType
-					});
+					//verify whether the assigned variable/argument exists
+					((string)rw.ItemArray[2]).ConvertUserVariableToObject(parentAutomationEngineInstance, nameof(v_ArgumentAssignments), this);
+
+					var existingArg = _argumentList.Where(x => x.ArgumentName == argumentName.Replace("{", "").Replace("}", "")).FirstOrDefault();
+					if (existingArg != null)
+						existingArg.AssignedVariable = ((string)rw.ItemArray[2]).Replace("{", "").Replace("}", "");
+                    else
+                    {
+						_argumentList.Add(new ScriptArgument
+						{
+							ArgumentName = argumentName.Replace("{", "").Replace("}", ""),
+							Direction = (ScriptArgumentDirection)Enum.Parse(typeof(ScriptArgumentDirection), argumentDirection),
+							AssignedVariable = ((string)rw.ItemArray[2]).Replace("{", "").Replace("}", ""),
+							ArgumentType = argumentType
+						});
+					}					
                 }
             }
 		}
@@ -388,7 +397,8 @@ namespace OpenBots.Commands.Task
 			var childArgumentList = childAutomationEngineInstance.AutomationEngineContext.Arguments;
 			foreach(var argument in _argumentList)
             {
-				if (argument.Direction == ScriptArgumentDirection.Out && !string.IsNullOrEmpty(argument.AssignedVariable))
+				if ((argument.Direction == ScriptArgumentDirection.Out || argument.Direction == ScriptArgumentDirection.InOut) 
+					&& !string.IsNullOrEmpty(argument.AssignedVariable))
                 {
 					var assignedParentVariable = parentVariableList.Where(v => v.VariableName == argument.AssignedVariable).FirstOrDefault();
 					var assignedParentArgument = parentArgumentList.Where(a => a.ArgumentName == argument.AssignedVariable).FirstOrDefault();

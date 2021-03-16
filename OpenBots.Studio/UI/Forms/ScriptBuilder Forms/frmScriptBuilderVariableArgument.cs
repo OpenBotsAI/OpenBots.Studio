@@ -162,7 +162,9 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
                         _typeContext.DefaultTypes.Add(((Type)row.Cells[1].Value).ToString(), (Type)row.Cells[1].Value);
 
                     //sets Value cell to readonly if the Direction is Out
-                    if (row.Cells.Count == 4 && row.Cells["Direction"].Value != null && (ScriptArgumentDirection)row.Cells["Direction"].Value == ScriptArgumentDirection.Out)
+                    if (row.Cells.Count == 4 && row.Cells["Direction"].Value != null && 
+                        ((ScriptArgumentDirection)row.Cells["Direction"].Value == ScriptArgumentDirection.Out || 
+                         (ScriptArgumentDirection)row.Cells["Direction"].Value == ScriptArgumentDirection.InOut))
                         row.Cells["ArgumentValue"].ReadOnly = true;
                 }
             }
@@ -212,7 +214,8 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
                     else if (e.RowIndex != -1 && e.ColumnIndex == 3)
                     {
                         //sets value cell to read only if the argument direction is set to Out
-                        if ((ScriptArgumentDirection)selectedCell.Value == ScriptArgumentDirection.Out)
+                        if ((ScriptArgumentDirection)selectedCell.Value == ScriptArgumentDirection.Out || 
+                            (ScriptArgumentDirection)selectedCell.Value == ScriptArgumentDirection.InOut)
                         {
                             dgv.Rows[e.RowIndex].Cells["ArgumentValue"].Value = null;
                             dgv.Rows[e.RowIndex].Cells["ArgumentValue"].ReadOnly = true;

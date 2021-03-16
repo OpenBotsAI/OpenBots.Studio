@@ -81,7 +81,7 @@ namespace OpenBots.Core.Utilities.CommonUtilities
                     {
                         if (varCheck.VariableType == typeof(string) || varCheck.VariableType.IsPrimitive)
                         {
-                            userInputString = userInputString.Replace(searchVariable, varCheck.VariableValue.ToString());
+                            userInputString = userInputString.Replace(searchVariable, varCheck.VariableValue?.ToString());
                         }
                         else if (varCheck.VariableValue is List<string> && potentialVariable.Split('.').Length == 2)
                         {

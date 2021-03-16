@@ -434,7 +434,8 @@ namespace OpenBots.UI.Forms
             var childArgumentList = childfrmScriptEngine.ScriptEngineContext.Arguments;
             foreach (var argument in argumentList)
             {
-                if (argument.Direction == ScriptArgumentDirection.Out && argument.AssignedVariable != null)
+                if ((argument.Direction == ScriptArgumentDirection.Out || argument.Direction == ScriptArgumentDirection.InOut)
+                    && argument.AssignedVariable != null)
                 {
                     var assignedParentVariable = parentVariableList.Where(v => v.VariableName == argument.AssignedVariable).FirstOrDefault();
                     var assignedParentArgument = parentArgumentList.Where(a => a.ArgumentName == argument.AssignedVariable).FirstOrDefault();

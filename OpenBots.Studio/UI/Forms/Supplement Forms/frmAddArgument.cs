@@ -94,7 +94,7 @@ namespace OpenBots.UI.Forms.Supplement_Forms
 
         private void cbxDefaultDirection_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cbxDefaultDirection.Text == "Out")
+            if (cbxDefaultDirection.Text == "Out" || cbxDefaultDirection.Text == "InOut")
             {
                 txtDefaultValue.Text = "";
                 txtDefaultValue.Enabled = false;
