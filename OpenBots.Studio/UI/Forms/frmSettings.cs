@@ -71,9 +71,6 @@ namespace OpenBots.UI.Forms
             cbxMinLogLevel.SelectedIndex = cbxMinLogLevel.Items.IndexOf(minLogLevel);
 
             txtLogging1.DataBindings.Add("Text", engineSettings, "LoggingValue1", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtLogging2.DataBindings.Add("Text", engineSettings, "LoggingValue2", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtLogging3.DataBindings.Add("Text", engineSettings, "LoggingValue3", false, DataSourceUpdateMode.OnPropertyChanged);
-            txtLogging4.DataBindings.Add("Text", engineSettings, "LoggingValue4", false, DataSourceUpdateMode.OnPropertyChanged);
 
             var clientSettings = _newAppSettings.ClientSettings;
             chkAntiIdle.DataBindings.Add("Checked", clientSettings, "AntiIdleWhileOpen", false, DataSourceUpdateMode.OnPropertyChanged);
@@ -305,10 +302,7 @@ namespace OpenBots.UI.Forms
                     break;
                 case SinkType.HTTP:
                     LoadHTTPLoggingSettings();
-                    break;
-                case SinkType.SignalR:
-                    LoadSignalRLoggingSettings();
-                    break;
+                    break;                
             }
         }
 
@@ -317,19 +311,7 @@ namespace OpenBots.UI.Forms
             lblLogging1.Text = "File Path: ";
             txtLogging1.Clear();
             txtLogging1.Text = Path.Combine(Folders.GetFolder(FolderType.LogFolder), "OpenBots Engine Logs.txt");
-            btnFileManager.Visible = true;
-           
-            lblLogging2.Visible = false;
-            txtLogging2.Visible = false;
-            txtLogging2.Clear();
-
-            lblLogging3.Visible = false;
-            txtLogging3.Visible = false;
-            txtLogging3.Clear();
-
-            lblLogging4.Visible = false;
-            txtLogging4.Visible = false;
-            txtLogging4.Clear();
+            btnFileManager.Visible = true;        
         }
 
         private void LoadHTTPLoggingSettings()
@@ -337,37 +319,6 @@ namespace OpenBots.UI.Forms
             lblLogging1.Text = "URI: ";
             txtLogging1.Clear();
             btnFileManager.Visible = false;
-
-            lblLogging2.Visible = false;
-            txtLogging2.Visible = false;
-            txtLogging2.Clear();
-
-            lblLogging3.Visible = false;
-            txtLogging3.Visible = false;
-            txtLogging3.Clear();
-
-            lblLogging4.Visible = false;
-            txtLogging4.Visible = false;
-            txtLogging4.Clear();
-        }
-
-        private void LoadSignalRLoggingSettings()
-        {
-            lblLogging1.Text = "URL: ";
-            txtLogging1.Clear();
-            btnFileManager.Visible = false;
-
-            lblLogging2.Visible = true; //Hub
-            txtLogging2.Visible = true;
-            txtLogging2.Clear();
-
-            lblLogging3.Visible = true; //Group Names
-            txtLogging3.Visible = true;
-            txtLogging3.Clear();
-
-            lblLogging4.Visible = true; //User IDs
-            txtLogging4.Visible = true;
-            txtLogging4.Clear();
         }
 
         private void cbxMinLogLevel_SelectedIndexChanged(object sender, EventArgs e)

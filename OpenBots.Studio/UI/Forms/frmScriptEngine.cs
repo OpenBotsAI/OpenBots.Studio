@@ -216,13 +216,6 @@ namespace OpenBots.UI.Forms
                 case SinkType.HTTP:
                     ScriptEngineContext.EngineLogger = new Logging().CreateHTTPLogger("", _engineSettings.LoggingValue1, _engineSettings.MinLogLevel);
                     break;
-                case SinkType.SignalR:
-                    string[] groupNames = _engineSettings.LoggingValue3.Split(',').Select(x => x.Trim()).ToArray();
-                    string[] userIDs = _engineSettings.LoggingValue4.Split(',').Select(x => x.Trim()).ToArray();
-
-                    ScriptEngineContext.EngineLogger = new Logging().CreateSignalRLogger("", _engineSettings.LoggingValue1, _engineSettings.LoggingValue2,
-                        groupNames, userIDs, _engineSettings.MinLogLevel);
-                    break;
             }
 
             //determine whether to show listbox or not

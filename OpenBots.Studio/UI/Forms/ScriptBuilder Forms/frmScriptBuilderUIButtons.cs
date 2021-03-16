@@ -1107,13 +1107,6 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
                 case SinkType.HTTP:
                     EngineLogger = new Logging().CreateHTTPLogger(ScriptProject.ProjectName, _appSettings.EngineSettings.LoggingValue1, _appSettings.EngineSettings.MinLogLevel);
                     break;
-                case SinkType.SignalR:
-                    string[] groupNames = _appSettings.EngineSettings.LoggingValue3.Split(',').Select(x => x.Trim()).ToArray();
-                    string[] userIDs = _appSettings.EngineSettings.LoggingValue4.Split(',').Select(x => x.Trim()).ToArray();
-
-                    EngineLogger = new Logging().CreateSignalRLogger(ScriptProject.ProjectName, _appSettings.EngineSettings.LoggingValue1, _appSettings.EngineSettings.LoggingValue2,
-                        groupNames, userIDs, _appSettings.EngineSettings.MinLogLevel);
-                    break;
             }
 
             EngineContext engineContext = new EngineContext(ScriptFilePath, ScriptProjectPath, AContainer, this, EngineLogger, null, null, null, null, null);

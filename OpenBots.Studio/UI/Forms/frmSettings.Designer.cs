@@ -61,14 +61,8 @@
             this.btnFileManager = new System.Windows.Forms.Button();
             this.cbxMinLogLevel = new System.Windows.Forms.ComboBox();
             this.lblMinLogLevel = new System.Windows.Forms.Label();
-            this.txtLogging4 = new System.Windows.Forms.TextBox();
-            this.txtLogging3 = new System.Windows.Forms.TextBox();
-            this.txtLogging2 = new System.Windows.Forms.TextBox();
             this.txtLogging1 = new System.Windows.Forms.TextBox();
             this.txtCommandDelay = new System.Windows.Forms.TextBox();
-            this.lblLogging4 = new System.Windows.Forms.Label();
-            this.lblLogging3 = new System.Windows.Forms.Label();
-            this.lblLogging2 = new System.Windows.Forms.Label();
             this.lblLogging1 = new System.Windows.Forms.Label();
             this.cbxSinkType = new System.Windows.Forms.ComboBox();
             this.lblSinkType = new System.Windows.Forms.Label();
@@ -480,14 +474,8 @@
             this.tabDebugSettings.Controls.Add(this.btnFileManager);
             this.tabDebugSettings.Controls.Add(this.cbxMinLogLevel);
             this.tabDebugSettings.Controls.Add(this.lblMinLogLevel);
-            this.tabDebugSettings.Controls.Add(this.txtLogging4);
-            this.tabDebugSettings.Controls.Add(this.txtLogging3);
-            this.tabDebugSettings.Controls.Add(this.txtLogging2);
             this.tabDebugSettings.Controls.Add(this.txtLogging1);
             this.tabDebugSettings.Controls.Add(this.txtCommandDelay);
-            this.tabDebugSettings.Controls.Add(this.lblLogging4);
-            this.tabDebugSettings.Controls.Add(this.lblLogging3);
-            this.tabDebugSettings.Controls.Add(this.lblLogging2);
             this.tabDebugSettings.Controls.Add(this.lblLogging1);
             this.tabDebugSettings.Controls.Add(this.cbxSinkType);
             this.tabDebugSettings.Controls.Add(this.lblSinkType);
@@ -546,33 +534,6 @@
             this.lblMinLogLevel.TabIndex = 50;
             this.lblMinLogLevel.Text = "Minimum Log Level:";
             // 
-            // txtLogging4
-            // 
-            this.txtLogging4.Location = new System.Drawing.Point(189, 562);
-            this.txtLogging4.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLogging4.Name = "txtLogging4";
-            this.txtLogging4.Size = new System.Drawing.Size(592, 34);
-            this.txtLogging4.TabIndex = 49;
-            this.txtLogging4.Visible = false;
-            // 
-            // txtLogging3
-            // 
-            this.txtLogging3.Location = new System.Drawing.Point(189, 522);
-            this.txtLogging3.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLogging3.Name = "txtLogging3";
-            this.txtLogging3.Size = new System.Drawing.Size(592, 34);
-            this.txtLogging3.TabIndex = 46;
-            this.txtLogging3.Visible = false;
-            // 
-            // txtLogging2
-            // 
-            this.txtLogging2.Location = new System.Drawing.Point(189, 482);
-            this.txtLogging2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtLogging2.Name = "txtLogging2";
-            this.txtLogging2.Size = new System.Drawing.Size(592, 34);
-            this.txtLogging2.TabIndex = 45;
-            this.txtLogging2.Visible = false;
-            // 
             // txtLogging1
             // 
             this.txtLogging1.Location = new System.Drawing.Point(189, 442);
@@ -588,50 +549,6 @@
             this.txtCommandDelay.Name = "txtCommandDelay";
             this.txtCommandDelay.Size = new System.Drawing.Size(101, 34);
             this.txtCommandDelay.TabIndex = 33;
-            // 
-            // lblLogging4
-            // 
-            this.lblLogging4.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.lblLogging4.AutoSize = true;
-            this.lblLogging4.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogging4.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogging4.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblLogging4.Location = new System.Drawing.Point(8, 567);
-            this.lblLogging4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogging4.Name = "lblLogging4";
-            this.lblLogging4.Size = new System.Drawing.Size(107, 28);
-            this.lblLogging4.TabIndex = 48;
-            this.lblLogging4.Text = "User IDs (,):";
-            this.lblLogging4.Visible = false;
-            // 
-            // lblLogging3
-            // 
-            this.lblLogging3.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.lblLogging3.AutoSize = true;
-            this.lblLogging3.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogging3.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogging3.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblLogging3.Location = new System.Drawing.Point(8, 526);
-            this.lblLogging3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogging3.Name = "lblLogging3";
-            this.lblLogging3.Size = new System.Drawing.Size(161, 28);
-            this.lblLogging3.TabIndex = 47;
-            this.lblLogging3.Text = "Group Names (,): ";
-            this.lblLogging3.Visible = false;
-            // 
-            // lblLogging2
-            // 
-            this.lblLogging2.AutoSize = true;
-            this.lblLogging2.BackColor = System.Drawing.Color.Transparent;
-            this.lblLogging2.Font = new System.Drawing.Font("Segoe UI Semilight", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLogging2.ForeColor = System.Drawing.Color.SteelBlue;
-            this.lblLogging2.Location = new System.Drawing.Point(8, 476);
-            this.lblLogging2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblLogging2.Name = "lblLogging2";
-            this.lblLogging2.Size = new System.Drawing.Size(52, 28);
-            this.lblLogging2.TabIndex = 44;
-            this.lblLogging2.Text = "Hub:";
-            this.lblLogging2.Visible = false;
             // 
             // lblLogging1
             // 
@@ -884,14 +801,8 @@
         private System.Windows.Forms.Button btnFileManager;
         private System.Windows.Forms.ComboBox cbxMinLogLevel;
         private System.Windows.Forms.Label lblMinLogLevel;
-        private System.Windows.Forms.TextBox txtLogging4;
-        private System.Windows.Forms.TextBox txtLogging3;
-        private System.Windows.Forms.TextBox txtLogging2;
         private System.Windows.Forms.TextBox txtLogging1;
         private System.Windows.Forms.TextBox txtCommandDelay;
-        private System.Windows.Forms.Label lblLogging4;
-        private System.Windows.Forms.Label lblLogging3;
-        private System.Windows.Forms.Label lblLogging2;
         private System.Windows.Forms.Label lblLogging1;
         private System.Windows.Forms.ComboBox cbxSinkType;
         private System.Windows.Forms.Label lblSinkType;

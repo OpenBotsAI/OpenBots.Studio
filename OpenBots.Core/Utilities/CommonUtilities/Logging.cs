@@ -53,31 +53,6 @@ namespace OpenBots.Core.Utilities.CommonUtilities
             }
         }
 
-        public Logger CreateSignalRLogger(string projectName, string url, string logHub = "LogHub", string[] logGroupNames = null,
-            string[] logUserIds = null, LogEventLevel minLogLevel = LogEventLevel.Verbose)
-        {
-            try
-            {
-                var levelSwitch = new LoggingLevelSwitch();
-                levelSwitch.MinimumLevel = minLogLevel;
-
-                return new LoggerConfiguration()
-                        .Enrich.WithProperty("JobId", Guid.NewGuid())
-                        .Enrich.WithProperty("ProcessName", $"{Dns.GetHostName()}-{projectName}")
-                        .Enrich.WithProperty("MachineName", Dns.GetHostName())
-                        .MinimumLevel.ControlledBy(levelSwitch)
-                        .WriteTo.SignalRClient(url,
-                                               hub: logHub, // default is LogHub
-                                               groupNames: logGroupNames, // default is null
-                                               userIds: logUserIds)// default is null
-                        .CreateLogger();
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
-
         public Logger CreateJsonFileLogger(string jsonFilePath, RollingInterval logInterval,
             LogEventLevel minLogLevel = LogEventLevel.Verbose)
         {

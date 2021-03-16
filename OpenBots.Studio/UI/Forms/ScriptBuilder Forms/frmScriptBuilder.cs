@@ -239,16 +239,7 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
             var groupedTypes = new Dictionary<string, List<Type>>();
 
             var defaultTypes = ScriptDefaultTypes.DefaultVarArgTypes;
-            _typeContext = new TypeContext(groupedTypes, defaultTypes);
-            var defaultTypesBinding = new BindingSource(_typeContext.DefaultTypes, null);
-
-            VariableType.DataSource = defaultTypesBinding;
-            VariableType.DisplayMember = "Key";
-            VariableType.ValueMember = "Value";
-
-            ArgumentType.DataSource = defaultTypesBinding;
-            ArgumentType.DisplayMember = "Key";
-            ArgumentType.ValueMember = "Value";
+            _typeContext = new TypeContext(groupedTypes, defaultTypes);          
         }
 
         private void UpdateWindowTitle()
@@ -279,6 +270,16 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
                     MessageBox.Show($"{ex.Message}\n\nFirst time user environment setup failed.", "Error");
                 }                
             }
+
+            var defaultTypesBinding = new BindingSource(_typeContext.DefaultTypes, null);
+
+            VariableType.DataSource = defaultTypesBinding;
+            VariableType.DisplayMember = "Key";
+            VariableType.ValueMember = "Value";
+
+            ArgumentType.DataSource = defaultTypesBinding;
+            ArgumentType.DisplayMember = "Key";
+            ArgumentType.ValueMember = "Value";
 
             //set controls double buffered
             foreach (Control control in Controls)

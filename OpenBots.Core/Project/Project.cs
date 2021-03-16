@@ -1,6 +1,7 @@
 ﻿using ICSharpCode.SharpZipLib.Core;
 using ICSharpCode.SharpZipLib.Zip;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Linq;
 using OpenBots.Core.Enums;
 using System;
@@ -17,6 +18,8 @@ namespace OpenBots.Core.Project
     {
         public Guid ProjectID { get; set; }
         public string ProjectName { get; set; }
+
+        [JsonConverter(typeof(StringEnumConverter))]
         public ProjectType ProjectType { get; set; }
         public string Main { get; set; }
         public string Version { get; set; }

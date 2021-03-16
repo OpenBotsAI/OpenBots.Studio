@@ -91,7 +91,7 @@ namespace OpenBots.UI.Forms.ScriptBuilder_Forms
                 }
 
                 //marks the script as unsaved with changes
-                if (!uiScriptTabControl.SelectedTab.Text.Contains(" *"))
+                if (uiScriptTabControl.SelectedTab != null && !uiScriptTabControl.SelectedTab.Text.Contains(" *"))
                     uiScriptTabControl.SelectedTab.Text += " *";
             }
             catch (Exception ex)

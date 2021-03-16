@@ -319,12 +319,27 @@ namespace OpenBots.UI.Forms
                         {
                             if (!row.IsNewRow)
                             {
-                                foreach (DataGridViewCell cell in row.Cells)
+                                if (currentControl.Columns[0] is DataGridViewCheckBoxColumn)
                                 {
-                                    isAllValid = ValidateInput(isAllValid, cell.Value?.ToString(), currentControl, testEngine);
-                                    if (!isAllValid)
-                                        break;
+                                    if (row.Cells[0].Value.ToString() == "True")
+                                    {
+                                        foreach (DataGridViewCell cell in row.Cells)
+                                        {
+                                            isAllValid = ValidateInput(isAllValid, cell.Value?.ToString(), currentControl, testEngine);
+                                            if (!isAllValid)
+                                                break;
+                                        }
+                                    }                                   
                                 }
+                                else
+                                {
+                                    foreach (DataGridViewCell cell in row.Cells)
+                                    {
+                                        isAllValid = ValidateInput(isAllValid, cell.Value?.ToString(), currentControl, testEngine);
+                                        if (!isAllValid)
+                                            break;
+                                    }
+                                }                             
                             }                          
                         }
                     }
@@ -356,6 +371,7 @@ namespace OpenBots.UI.Forms
             currentControl.BorderColor = Color.Transparent;
             var validationContext = (CommandControlValidationContext)currentControl.Tag;
 
+            //check whether input is required
             if (string.IsNullOrEmpty(validatingText) && validationContext.IsRequired == true)
             {
                 currentControl.BorderColor = Color.Red;
@@ -363,6 +379,8 @@ namespace OpenBots.UI.Forms
                 isAllValid = false;
                 return isAllValid;
             }
+            else if (string.IsNullOrEmpty(validatingText) && validationContext.IsRequired == false)
+                return isAllValid;
 
             //TODO: Create an Instance tab with assigned Instance Types. For now, only requirement is some set some value
             if (validationContext.IsInstance)

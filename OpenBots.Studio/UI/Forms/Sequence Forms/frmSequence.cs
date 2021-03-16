@@ -81,7 +81,17 @@ namespace OpenBots.UI.Forms.Sequence_Forms
         }
 
         private void frmSequence_Load(object sender, EventArgs e)
-        {           
+        {
+            var defaultTypesBinding = new BindingSource(TypeContext.DefaultTypes, null);
+
+            VariableType.DataSource = defaultTypesBinding;
+            VariableType.DisplayMember = "Key";
+            VariableType.ValueMember = "Value";
+
+            ArgumentType.DataSource = defaultTypesBinding;
+            ArgumentType.DisplayMember = "Key";
+            ArgumentType.ValueMember = "Value";
+
             //set controls double buffered
             foreach (Control control in Controls)
             {
